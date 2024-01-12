@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중앙대학교 편의시설 지도</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 메뉴바 -->
+<!-- 메뉴바 -->
+    <div class="menu-bar">
+        <div class="menu-toggle">&#9776;</div>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+        </div>
+        <div id="result"></div>
+    </div>
+
+
+
+    <!-- 지도 컨테이너 -->
+    <div class="map-container">
+        <img src="map.png" alt="중앙대학교 지도" class="map-image">
+    </div>
+
+    <!-- 건물 리스트 -->
+    <div class="building-list">
+        <!-- 건물 번호 버튼 -->
+        <div class="building-number">102</div>
+        <div class="building-number">103</div>
+        <div class="building-number">104</div>
+        <div class="building-number">105</div>
+        <div class="building-number">201</div>
+        <div class="building-number">204</div>
+        <div class="building-number">208</div>
+        <div class="building-number">301</div>
+        <div class="building-number">303</div>
+        <div class="building-number">310</div>
+        <!-- 기타 건물 번호 -->
+    </div>
+    <!-- 사이드바 메뉴 -->
+    <div class="sidebar">
+        <div class="close-modal" id="close-sidebar">&times;</div>
+        <ul class="facility-list">
+            <li><button class="facility-button" data-facility="편의점">편의점</button></li>
+            <li><button class="facility-button" data-facility="식당">식당</button></li>
+            <li><button class="facility-button" data-facility="카페">카페</button></li>
+        </ul>
+    </div>
+        <!-- 정보를 표시할 모달 창 -->
+    <div id="info-modal">
+        <div class="info-modal-content">
+            <!-- 모달 창 닫기 버튼 -->
+            <span class="close-info-modal">&times;</span>
+        <!-- 모달 창에 표시될 내용 -->
+            <p></p>
+        </div>
+    </div>
+
+    <!-- 층수 선택 모달 -->
+    
+    <div class="floor-select-modal modal hidden">
+        <button class="close-modal" id="close-floor-select-modal">&times;</button> <!-- 닫기 버튼 -->
+        <select id="floor-select">
+            <!-- 층수 옵션들은 JavaScript를 통해 동적으로 생성됩니다. -->
+        </select>
+        <button class="show-btn" id="show-floor">보기</button>
+    </div>
+
+    <!-- 층 이미지 모달 -->
+    <div class="floor-image-modal modal hidden">
+        <img id="floor-image" src="" alt="층 이미지">
+        <button class="close-modal" id="close-floor-image-modal">&times;</button> <!-- 닫기 버튼 -->
+    </div>
+
+    <!-- 편의시설 사진 모달 -->
+    <div class="facility-image-modal modal hidden">
+        <img id="facility-image" src="" alt="편의시설 이미지">
+        <button class="close-modal" id="close-facility-image-modal">&times;</button> <!-- 닫기 버튼 -->
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

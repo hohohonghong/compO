@@ -1,0 +1,298 @@
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input, button {
+    font-family: 'Arial', sans-serif;
+}
+body {
+    background-color: #003399;
+}
+
+
+
+/* 메뉴 바 스타일 */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: #003399; /* 메뉴 바 색상 */
+    z-index: 100;
+    height:5em;
+}
+
+.menu-toggle {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+#search-input {
+    position: absolute;
+    left: 50%;
+    top:2.5%;
+    transform: translateX(-50%);
+    width: 80%; /* 화면 너비의 80%를 차지하도록 설정 */
+    max-width: 800px; /* 너비의 최대값은 800px로 제한 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 101; /* z-index 값을 더 높여 검색창이 다른 요소 위로 올라오게 합니다. */
+}
+
+#result {
+    position: absolute;
+    left: 50%;
+    top: calc(2.5% + 38px);
+    transform: translateX(-50%);
+    width: 80%; /* 화면 너비의 80%를 차지하도록 설정 */
+    max-width: 800px; /* 너비의 최대값은 800px로 제한 */
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100; /* z-index 값을 더 높여 결과 목록이 다른 요소 위로 올라오게 합니다. */
+}
+
+#result div {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+#result div:last-child {
+    border-bottom: none;
+}
+
+#result div:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/* 지도 컨테이너 스타일 */
+.map-container {
+    position: relative;
+    text-align: center;
+    padding: 1em 0;
+    background-color: #f0f0f0; /* 배경 색상 */
+}
+
+.map-image {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 1em;
+}
+
+/* 건물 리스트 스타일 */
+
+/* 건물 리스트 스타일 */
+.building-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 그리드 설정 */
+    gap: 10px; /* 건물 번호 사이의 간격 */
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    background-color: #003399;
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: auto; /* 가운데 정렬 */
+}
+
+/* 건물 번호 스타일 */
+.building-number {
+    background-color: #0055cc;
+    color: white;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.modal {
+    /* ... (기존 스타일 생략) ... */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* 모달의 너비를 설정 */
+    max-width: 600px; /* 모달의 최대 너비를 설정 */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: auto; /* 내용이 많을 경우 스크롤 표시 */
+}
+/* 모달 내부 스타일 */
+.modal select,
+.modal button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.modal button {
+    background-color: #5C6BC0;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
+    background-color: #3949AB;
+}
+
+.modal img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+
+/* 닫기 버튼 스타일 */
+.close-modal {
+
+    font-size: 1.5rem; /* 아이콘 크기를 작게 설정 */
+    color: #666;
+    cursor: pointer;
+}
+
+
+.close-modal:hover {
+    color: #000;
+}
+.show-btn {
+    top:100px;
+}
+/* 사이드버튼 */
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0; /* 상단에 위치 */
+    left: -50%; /* 초기에는 화면 외부에 숨겨둠 */
+    width: 50%; /* 화면의 1/3 크기 */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* 투명도 조정 */
+    transition: left 0.3s ease;
+    z-index: 9999; /* 다른 요소 위에 표시 */
+}
+
+.sidebar.open {
+    left: 0; /* 사이드바 열기 */
+}
+
+.close-modal {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.facility-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.facility-button {
+    display: block; /* 버튼이 표시되도록 설정 */
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    text-align: left;
+    text-decoration: none;
+}
+/* 편의시서 정보창 */
+#info-modal {
+    display: none; /* 초기 상태에서는 숨겨져 있어야 함 */
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 전체 화면을 덮도록 설정 */
+    height: 100%;
+    overflow: auto; /* 내용이 많을 경우 스크롤 가능하도록 */
+    background-color: rgba(0,0,0,0.4); /* 배경을 어둡게 */
+  }
+  /* 모달 창 내용 */
+  .info-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 상하 15%, 좌우 auto로 중앙 배치 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 전체 화면의 80% 너비 */
+  }
+  
+
+
+
+/* 모달 창 닫기 버튼 */
+.close-info-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* 모달 창 닫기 버튼에 마우스를 올렸을 때 */
+.close-info-modal:hover,
+.close-info-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*편의시설버튼*/
+.facility-button {
+    padding: 10px 20px;
+    font-size:20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.facility-button:hover {
+    color: blue;
+}
+
+.facility-button:active {
+    color: #999;
+}
+
+@media screen and (max-width: 600px) {
+    .menu-toggle {
+        font-size: 30px;
+    }
+}
